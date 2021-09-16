@@ -4,18 +4,22 @@ import SearchForm from "../components/SearchForm";
 import {useState} from "react";
 
 //we aren't using our prop in the return.
+export interface Props {
+    query: string;
+}
 
-export default function GetRecipe(): Promise<recipe> {
+export default function GetRecipe({query}:Props) {
     const apiKey = process.env.REACT_APP_RECIPE_API_KEY || "";
     const appId = process.env.REACT_APP_RECIPE_API_ID || "";
     
+
     // const [newQuery, setNewQuery] = useState("");
 
 	return axios
 		.get("https://api.edamam.com/api/recipes/v2",{
             params: {
                 type: "public",
-                q: "chicken",
+                q: {query},
                 app_id: appId,
                 app_key: apiKey
             }

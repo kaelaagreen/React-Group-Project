@@ -9,7 +9,9 @@ import SearchResults from "./components/SearchResults"
 function App() {
   return (
     <div className="App">
+      
       <SearchForm/>
+
       <SearchResults/>
     </div>
   );

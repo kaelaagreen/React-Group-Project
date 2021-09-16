@@ -1,14 +1,17 @@
 import {useState , useEffect } from "react";
 import recipe from "../models/recipe";
 import GetRecipe from "../services/GetRecipe";
+import { Props } from "../services/GetRecipe";
+
 
 
 export default function SearchResults(){
     const [recipe, setRecipe] = useState<recipe>();
+
 //all of our data is here
     useEffect(() => {
         //this is where the setQuery should go maybe? 
-		GetRecipe().then((data) => {
+		GetRecipe({query}:Props).then((data) => {
 			setRecipe(data);
 		});
 	}, [])
@@ -19,6 +22,5 @@ export default function SearchResults(){
             <h1>Recipe Details</h1>
             {recipe?.hits.map(food => <p>{food.recipe.label}</p>)}
            </div>
-
     )
 }
