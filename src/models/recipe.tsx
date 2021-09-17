@@ -1,3 +1,14 @@
+export interface recipeInterface {//taz's code
+	label: string;
+	image: string;
+	source: string;
+	url: string;
+	calories: number;
+	totalTime: number;
+	recipeNumber: number;
+}
+
+
 export default interface recipe {
   from: number;
   to: number;
