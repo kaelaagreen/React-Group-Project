@@ -1,16 +1,24 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {useState} from "react";
+import SearchResults from './SearchResults';
+import GetRecipe from '../services/GetRecipe';
+import recipe from "../models/recipe";
 
 
-export default function SearchForm(){
+
+export default function SearchForm({onSubmit}:{onSubmit: (query:string) => void}){
   const [query, setQuery] = useState<string>("");
 
+
     return (
-        <Form onSubmit={(event)=>{
+      <div>
+<Form onSubmit={(event)=>{
           event.preventDefault();
 
-        }}>
+          onSubmit(query);
+          setQuery("");
+          }}>
         <Form.Group className="mb-3" controlId="formBasicSearch">
           {/* //LABEL// */}
           <Form.Label>Search</Form.Label>
@@ -27,5 +35,10 @@ export default function SearchForm(){
           Search
         </Button>
       </Form>
+
+      <SearchResults/>
+
+      </div>
+        
       )
 }
