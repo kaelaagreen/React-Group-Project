@@ -49,6 +49,7 @@ export default interface recipe {
         ];
         calories: number;
         totalWeight: number;
+        totalTime: number;
         cuisineType: [string];
         mealType: [string];
         dishType: [string];
