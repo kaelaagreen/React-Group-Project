@@ -12,11 +12,9 @@ export default function RecipeDetails({recipe}: any){
 
     return(
         <div>
-       
+       <h1>Recipe Details</h1>
     <img src={thisRecipe?.image}></img>
         </div>
-        
-
         ) 
         
 }

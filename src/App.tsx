@@ -18,7 +18,7 @@ import Results from "./components/Results";
 function App() {
   const [recipe, setRecipe] = useState<recipe>();
 
-  function onSubmit(query: string) {
+function onSubmit(query: string) {
     GetRecipe(query).then((data) => {
       setRecipe(data);
     });
@@ -42,7 +42,7 @@ function App() {
               return (
                 <div>
                   <ul>
-                    <li><Link to="/details/:id">{food.recipe.label}</Link>
+                    <li><Link to={"/details/"+ index}>{food.recipe.label}</Link>
                     <Results
 										recipeNumber={index}
 										key={index}
@@ -59,8 +59,6 @@ function App() {
             })}
 
           </Route>
-
-          
         </Switch>
       </Router>
     </div>
