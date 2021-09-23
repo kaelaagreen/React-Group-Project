@@ -7,19 +7,20 @@ import {
   Switch,
   Route,
   NavLink,
-  Link
+  Link,
 } from "react-router-dom";
 import { useState } from "react";
 import recipe from "./models/recipe";
 import GetRecipe from "./services/GetRecipe";
 import RecipeDetails from "./components/RecipeDetails";
 import Results from "./components/Results";
+import SearchParams from "./models/SearchParams";
 
 function App() {
   const [recipe, setRecipe] = useState<recipe>();
 
-function onSubmit(query: string) {
-    GetRecipe(query).then((data) => {
+  function onSubmit(searchParams: SearchParams) {
+    GetRecipe(searchParams).then((data) => {
       setRecipe(data);
     });
   }
@@ -28,13 +29,11 @@ function onSubmit(query: string) {
     <div className="App">
       <Router>
         <Switch>
-          
           <Route path="/details/:id">
-            <RecipeDetails recipe={recipe}/>
+            <RecipeDetails recipe={recipe} />
           </Route>
           {/* MAIN PAGE */}
           <Route path="/">
-
             <SearchForm onSubmit={onSubmit} />
 
             {/* SEARCH RESULTS */}
@@ -42,22 +41,22 @@ function onSubmit(query: string) {
               return (
                 <div>
                   <ul>
-                    <li><Link to={"/details/"+ index}>{food.recipe.label}</Link>
-                    <Results
-										recipeNumber={index}
-										key={index}
-										label={food.recipe.label}
-										image={food.recipe.image}
-										source={food.recipe.source}
-										url={food.recipe.url}
-										calories={food.recipe.calories}
-										totalTime={food.recipe.totalTime}
-									/></li>
+                    <li>
+                      <Results
+                        recipeNumber={index}
+                        key={index}
+                        label={food.recipe.label}
+                        image={food.recipe.image}
+                        source={food.recipe.source}
+                        url={food.recipe.url}
+                        calories={food.recipe.calories}
+                        totalTime={food.recipe.totalTime}
+                      />
+                    </li>
                   </ul>
                 </div>
               );
             })}
-
           </Route>
         </Switch>
       </Router>
