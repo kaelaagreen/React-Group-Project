@@ -11,32 +11,22 @@ export default function RecipeDetails({ recipe }: any) {
   let recipeIngredientsList = recipe?.hits[id]?.recipe?.ingredientLines;
   return (
     <section>
-      
       <Link to="/">
-      <button>Go Back</button>
-      
+        <button>Go Back</button>
       </Link>
       <div>
         <h1>Recipe Details: {thisRecipe?.label}</h1>
       </div>
       <div>
-        
         <img src={thisRecipe?.image} alt=""></img>
         <p>Calories: {Math.floor(thisRecipe?.calories)}</p>
-      <p>Original Source: {thisRecipe?.source}</p>
+        <p>Original Source: {thisRecipe?.source}</p>
 
-
-    <ul>
-
-        {recipeIngredientsList.map((item: string) =>{
-          
-          return(
-            <li>{item}</li>
-          )
-        })}
-    </ul>
-        
-        
+        <ul>
+          {recipeIngredientsList.map((item: string) => {
+            return <li>{item}</li>;
+          })}
+        </ul>
       </div>
     </section>
   );

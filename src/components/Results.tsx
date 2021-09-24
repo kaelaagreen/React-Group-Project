@@ -16,7 +16,7 @@ export default function Results({
         <h3>{label}</h3>
         <img src={image} alt="" />
       </Link>
-      <p>Source: {source}</p>
+      <p><strong>Source:</strong> <Link to={source}></Link>{source}</p>
       {/* <p>Calories: {calories.toFixed(0)}</p>
         <p>Total time: {totalTime}</p> */}
       <Link

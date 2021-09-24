@@ -1,8 +1,9 @@
 .App {
-    text-align: center;
-    background-color: hsl(0, 0%, 100%);
-    font-family: 'Dancing Script', cursive;
-    font-size: larger;
+  text-align: center;
+  background-color: hsl(0, 0%, 100%);
+  font-family: 'Dancing Script', cursive;
+  font-size: larger;
+  background-color: rgb(241, 245, 245);
   } 
 
   .RecipeBlock{
@@ -11,6 +12,7 @@
     width:500px;
     /* border:solid black 1px; */
     margin-bottom: 10px;
+    border-radius: 20px;
   
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -49,4 +51,19 @@
     height: 500px;
   overflow: visible;
   display: block;}
+  }
+
+  img{
+    border-radius: 10px;
+    max-width: 90%;
+  }
+
+  input{
+    border-radius: 7px;
+  }
+  button{
+    border-radius: 7px;
+  }
+  select{
+    border-radius: 7px;
   }

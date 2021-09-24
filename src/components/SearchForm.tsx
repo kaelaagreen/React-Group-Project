@@ -10,9 +10,19 @@ export default function SearchForm({
   const [health, setHealth] = useState("");
   return (
     <div>
+      <h1 className="pageHeader">Recipe Router</h1>
+      <p></p>
       <form
         onSubmit={(event) => {
           event.preventDefault();
+          document.querySelectorAll(".animation").forEach((recipeBlock)=>{
+            recipeBlock.classList.remove("animation")
+            setTimeout(() =>{
+                recipeBlock.classList.add("animation")
+                
+            }, 500 )
+        })
+
           console.log(query);
           onSubmit({ query, health });
           setQuery("");
@@ -39,7 +49,7 @@ export default function SearchForm({
             }}
           >
             <option value="" defaultChecked>
-              select below
+              optional
             </option>
             <option value="alcohol-free">alcohol free</option>
             <option value="dairy-free">dairy free</option>
