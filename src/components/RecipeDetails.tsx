@@ -17,7 +17,9 @@ export default function RecipeDetails({ recipe }: any) {
       <div>
         
         <img src={thisRecipe?.image} alt=""></img>
+        <p>Calories: {Math.floor(thisRecipe?.calories)}</p>
       <p>Original Source: {thisRecipe?.source}</p>
+
 
     <ul>
 
