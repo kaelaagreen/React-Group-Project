@@ -11,7 +11,7 @@ export default function Results({
   recipeNumber,
 }: recipeInterface) {
   return (
-    <div className="RecipeBlock">
+    <div className="RecipeBlock RecipeBlock animation">
       <Link to={"/details/" + recipeNumber}>
         <img src={image} alt="" />
         <h3>{label}</h3>

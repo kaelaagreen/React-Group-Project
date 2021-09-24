@@ -1,6 +1,8 @@
 .App {
     text-align: center;
     background-color: hsl(0, 0%, 100%);
+    font-family: 'Dancing Script', cursive;
+    font-size: larger;
   } 
 
   .RecipeBlock{
@@ -27,4 +29,24 @@
     background: white;
     border-radius: 5px;
     
+  }
+
+  ul{
+    list-style-type: none;
+  }
+
+  .RecipeBlock.animation{
+    animation: slidedown 2s forwards;
+    
+  
+  }
+  @keyframes slidedown {
+    from {min-height: 0px ;
+      height: 0px;
+    overflow: hidden;
+  display: none;}
+    to{min-height: 200px;
+    height: 500px;
+  overflow: visible;
+  display: block;}
   }
