@@ -58,12 +58,7 @@
     max-width: 90%;
   }
 
-  input{
+  input, button, select{
     border-radius: 7px;
   }
-  button{
-    border-radius: 7px;
-  }
-  select{
-    border-radius: 7px;
-  }
+  

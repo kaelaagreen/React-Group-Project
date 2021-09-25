@@ -38,7 +38,7 @@ export default function SearchForm({
           value={query}
         />
         <label htmlFor="health">
-          {" "}
+          {/* {" "} */}
           Health:
           <select
             name="health"

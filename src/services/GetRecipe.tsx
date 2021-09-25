@@ -12,7 +12,7 @@ import SearchParams from "../models/SearchParams";
 export default function GetRecipe(searchParams: SearchParams): Promise<recipe> {
   const apiKey = process.env.REACT_APP_RECIPE_API_KEY || "";
   const appId = process.env.REACT_APP_RECIPE_API_ID || "";
-
+  const diet = searchParams.health || undefined;
   // const [newQuery, setNewQuery] = useState("");
 
   return axios
@@ -20,9 +20,10 @@ export default function GetRecipe(searchParams: SearchParams): Promise<recipe> {
       params: {
         type: "public",
         q: searchParams.query,
-        health: searchParams.health,
+        health: diet,
         app_id: appId,
         app_key: apiKey,
+        
       },
     })
     .then((res) => res.data);
