@@ -1,6 +1,9 @@
 .App {
-    text-align: center;
-    background-color: hsl(0, 0%, 100%);
+  text-align: center;
+  background-color: hsl(0, 0%, 100%);
+  font-family: 'Dancing Script', cursive;
+  font-size: larger;
+  background-color: rgb(241, 245, 245);
   } 
 
   .RecipeBlock{
@@ -9,6 +12,7 @@
     width:500px;
     /* border:solid black 1px; */
     margin-bottom: 10px;
+    border-radius: 20px;
   
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -28,3 +32,33 @@
     border-radius: 5px;
     
   }
+
+  ul{
+    list-style-type: none;
+  }
+
+  .RecipeBlock.animation{
+    animation: slidedown 2s forwards;
+    
+  
+  }
+  @keyframes slidedown {
+    from {min-height: 0px ;
+      height: 0px;
+    overflow: hidden;
+  display: none;}
+    to{min-height: 200px;
+    height: 500px;
+  overflow: visible;
+  display: block;}
+  }
+
+  img{
+    border-radius: 10px;
+    max-width: 90%;
+  }
+
+  input, button, select{
+    border-radius: 7px;
+  }
+  

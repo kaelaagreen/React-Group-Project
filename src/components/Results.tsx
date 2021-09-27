@@ -11,12 +11,12 @@ export default function Results({
   recipeNumber,
 }: recipeInterface) {
   return (
-    <div className="RecipeBlock">
+    <div className="RecipeBlock RecipeBlock animation">
       <Link to={"/details/" + recipeNumber}>
-        <img src={image} alt="" />
         <h3>{label}</h3>
+        <img src={image} alt="" />
       </Link>
-      <p>Source: {source}</p>
+      <p><strong>Source:</strong> <Link to={source}></Link>{source}</p>
       {/* <p>Calories: {calories.toFixed(0)}</p>
         <p>Total time: {totalTime}</p> */}
       <Link
