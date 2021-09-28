@@ -9,7 +9,7 @@ export default function SearchForm({
   const [query, setQuery] = useState<string>("");
   const [health, setHealth] = useState("");
   return (
-    <div>
+    <div className="search">
       <h1 className="pageHeader">Recipe Router</h1>
       <p></p>
       <form
@@ -37,6 +37,7 @@ export default function SearchForm({
           }}
           value={query}
         />
+        <br /><br />
         <label htmlFor="health">
           {/* {" "} */}
           Health:
