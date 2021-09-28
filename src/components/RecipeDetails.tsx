@@ -14,10 +14,11 @@ export default function RecipeDetails({ recipe }: any) {
       <Link to="/">
         <button>Go Back</button>
       </Link>
-      <div>
+      {/* <div>
         <h1>Recipe Details: {thisRecipe?.label}</h1>
-      </div>
-      <div>
+      </div> */}
+      <div className="list title">
+        <h1>Recipe Details: {thisRecipe?.label}</h1>
         <img src={thisRecipe?.image} alt=""></img>
         <p>Calories: {Math.floor(thisRecipe?.calories)}</p>
         <p>Original Source: {thisRecipe?.source}</p>
