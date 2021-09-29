@@ -6,7 +6,7 @@ export default function SearchForm({
 }: {
   onSubmit: (searchParams: SearchParams) => void;
 }) {
-  const [query, setQuery] = useState<string>("");
+  const [query, setQuery] = useState("");
   const [health, setHealth] = useState("");
   return (
     <div className="search">
@@ -39,7 +39,6 @@ export default function SearchForm({
         />
         <br /><br />
         <label htmlFor="health">
-          {/* {" "} */}
           Health:
           <select
             name="health"

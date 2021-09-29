@@ -1,33 +1,15 @@
 import { Link } from "react-router-dom";
-import { recipeInterface } from "../models/recipe";
+import { HitsEntity } from "../models/recipe";
 
-export default function Results({
-  label,
-  image,
-  source,
-  url,
-  calories,
-  totalTime,
-  recipeNumber,
-}: recipeInterface) {
+export default function Results({ recipe, _links }: HitsEntity) {
+  const id = recipe.uri.slice(recipe.uri.indexOf("#") + 1);
   return (
-    <div className="RecipeBlock RecipeBlock animation">
-      <Link to={"/details/" + recipeNumber}>
-        <h3>{label}</h3>
-        <img src={image} alt="" />
+    <div className="RecipeBlock">
+      <Link to={id}>
+        <img src={recipe.image} alt="" />
+        <h3>{recipe.label}</h3>
       </Link>
-      <p><strong>Source:</strong> <Link to={source}></Link>{source}</p>
-      {/* <p>Calories: {calories.toFixed(0)}</p>
-        <p>Total time: {totalTime}</p> */}
-      <Link
-        to={"/favorites"}
-        onClick={(event) => {
-          //   event?.preventDefault();
-          console.log("it clicked");
-        }}
-      >
-        <i className="fas fa-heart"></i>Add To Favorites
-      </Link>
+      <p>Source: {recipe.source}</p>
     </div>
   );
 }

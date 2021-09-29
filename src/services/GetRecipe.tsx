@@ -1,7 +1,5 @@
 import axios from "axios";
 import recipe from "../models/recipe";
-import SearchForm from "../components/SearchForm";
-import { useState } from "react";
 import SearchParams from "../models/SearchParams";
 
 //we aren't using our prop in the return.
@@ -20,7 +18,7 @@ export default function GetRecipe(searchParams: SearchParams): Promise<recipe> {
       params: {
         type: "public",
         q: searchParams.query,
-        health: diet,
+        health: searchParams.health || undefined,
         app_id: appId,
         app_key: apiKey,
         

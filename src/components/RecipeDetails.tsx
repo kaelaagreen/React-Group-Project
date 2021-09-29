@@ -1,33 +1,54 @@
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-interface RouteParams {
-  id: string;
-}
+import { recipeDetailsInterface } from "../models/recipe";
+import { useContext, useState, useEffect } from "react";
+import { Favorites } from "../context/FavoritesProvider";
+import GetRecipeDetails from "../services/GetRecipeDetails";
+// interface RouteParams {
+//   id: string;
+// }
+//This component RecipeDetails takes a recipe object
 
-export default function RecipeDetails({ recipe }: any) {
-  const { id } = useParams<RouteParams>();
-
-  let thisRecipe = recipe?.hits[id]?.recipe;
-  let recipeIngredientsList = recipe?.hits[id]?.recipe?.ingredientLines;
+export default function RecipeDetails() {
+  const [recipeDetails, setRecipeDetails] = useState<recipeDetailsInterface>();
+  const id = document.location.pathname.slice(1);
+  const fechtedDetails = useEffect(() => {
+    GetRecipeDetails(id).then((data) => setRecipeDetails(data));
+  }, []);
+  const { addToFavorites, removeFromFavorites, favoritesList } =
+    useContext(Favorites);
+  const thisRecipeIsAFavorite: boolean = favoritesList.some(
+    (favorite) => favorite.recipe.uri === recipeDetails?.recipe.uri
+  );
   return (
     <section>
-      <Link to="/">
-        <button>Go Back</button>
-      </Link>
-      {/* <div>
-        <h1>Recipe Details: {thisRecipe?.label}</h1>
-      </div> */}
-      <div className="list title">
-        <h1>Recipe Details: {thisRecipe?.label}</h1>
-        <img src={thisRecipe?.image} alt=""></img>
-        <p>Calories: {Math.floor(thisRecipe?.calories)}</p>
-        <p>Original Source: {thisRecipe?.source}</p>
-
-        <ul>
-          {recipeIngredientsList.map((item: string) => {
-            return <li>{item}</li>;
-          })}
-        </ul>
+      <div>
+        <h1>Recipe Details</h1>
+      </div>
+      <div>
+        <h3>{recipeDetails?.recipe.label}</h3>
+        <img src={recipeDetails?.recipe.image} alt=""></img>
+        <a href={recipeDetails?.recipe.url}>
+          <p>Original Source: {recipeDetails?.recipe.source}</p>
+        </a>
+        {thisRecipeIsAFavorite ? (
+          <button
+            onClick={() => {
+              removeFromFavorites(recipeDetails?.recipe.uri!);
+            }}
+          >
+            Remove Favorite
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              console.log(recipeDetails);
+              if (recipeDetails) {
+                addToFavorites(recipeDetails);
+              }
+            }}
+          >
+            Add to Favorites
+          </button>
+        )}
       </div>
     </section>
   );
