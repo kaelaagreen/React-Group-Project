@@ -11,7 +11,7 @@ export default function RecipeDetails() {
   const [recipeDetails, setRecipeDetails] = useState<recipeDetailsInterface>();
   const id = document.location.pathname.slice(1);
   const fechtedDetails = useEffect(() => {
-    GetRecipeDetails(id).then((data) => setRecipeDetails(recipeDetails));
+    GetRecipeDetails(id).then((data) => setRecipeDetails(data));
   }, []);
   const { addToFavorites, removeFromFavorites, favoritesList } =
     useContext(Favorites);
@@ -35,8 +35,7 @@ export default function RecipeDetails() {
               removeFromFavorites(recipeDetails?.recipe.uri!);
             }}
           >
-            {" "}
-            Remove Favorite{" "}
+            Remove Favorite
           </button>
         ) : (
           <button

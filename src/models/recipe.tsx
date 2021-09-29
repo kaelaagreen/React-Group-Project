@@ -137,3 +137,8 @@ export interface SelfOrNext {
   href: string;
   title: string;
 }
+
+export interface HitsEntity {
+  recipe: Recipe;
+  _links: Links;
+}

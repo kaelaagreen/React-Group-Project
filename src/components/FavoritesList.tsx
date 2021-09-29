@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function FavoritesList() {
   const { addToFavorites, removeFromFavorites, favoritesList } =
     useContext(Favorites);
+  console.log("cheese");
   return (
     <div>
       <ul>

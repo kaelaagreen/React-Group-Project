@@ -27,7 +27,7 @@ export default function FavoritesProvider({
     let newFavoritesList = [...favoritesList];
     newFavoritesList.push(recipe);
     setFavoritesList(newFavoritesList);
-    console.log("favorites list: ", favoritesList);
+    console.log("favorites list: ", newFavoritesList);
   }
 
   function removeFromFavorites(uri: string): void {

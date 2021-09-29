@@ -6,7 +6,6 @@ import {
   Switch,
   Route,
   NavLink,
-  Link,
 } from "react-router-dom";
 import { useState } from "react";
 import recipe from "./models/recipe";
@@ -36,32 +35,26 @@ function App() {
         </NavLink>
         <Switch>
           <FavoritesProvider>
-            <Route path="recipe/favorites" exact>
+            <Route path="/recipe/favorites" exact>
               <FavoritesList />
             </Route>
-            <Route path="/details/:id">
+            <Route path="/:recipeId" exact>
               <RecipeDetails />
             </Route>
             {/* MAIN PAGE */}
-            <Route path="/">
+            <Route path="/" exact>
               <SearchForm onSubmit={onSubmit} />
 
               {/* SEARCH RESULTS */}
               <div>
                 <ul>
-                  {recipe?.hits.map((food, index) => {
+                  {recipe?.hits.map((hit, index) => {
                     return (
                       <li>
                         <Results
-                          recipeNumber={index}
+                          recipe={hit.recipe}
+                          _links={hit._links}
                           key={index}
-                          label={food.recipe.label}
-                          image={food.recipe.image}
-                          source={food.recipe.source}
-                          url={food.recipe.url}
-                          calories={food.recipe.calories}
-                          totalTime={food.recipe.totalTime}
-                          uri={food.recipe.uri}
                         />
                       </li>
                     );
