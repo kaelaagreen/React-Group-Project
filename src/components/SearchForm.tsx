@@ -9,6 +9,7 @@ export default function SearchForm({
   const [query, setQuery] = useState<string>("");
   const [health, setHealth] = useState("");
   return (
+    
     <div className="search">
       <h1 className="pageHeader">Recipe Router</h1>
       <p></p>
@@ -22,7 +23,7 @@ export default function SearchForm({
                 
             }, 500 )
         })
-
+         ;//for the opacity
           console.log(query);
           onSubmit({ query, health });
           setQuery("");

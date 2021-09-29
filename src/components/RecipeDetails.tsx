@@ -14,6 +14,7 @@ export default function RecipeDetails({ recipe }: any) {
       <Link to="/">
         <button>Go Back</button>
       </Link>
+      <div className="opaque"></div>
       {/* <div>
         <h1>Recipe Details: {thisRecipe?.label}</h1>
       </div> */}

@@ -11,7 +11,9 @@ export default function Results({
   recipeNumber,
 }: recipeInterface) {
   return (
+    
     <div className="RecipeBlock RecipeBlock animation">
+      
       <Link to={"/details/" + recipeNumber}>
         <h3>{label}</h3>
         <img src={image} alt="" />
@@ -29,5 +31,6 @@ export default function Results({
         <i className="fas fa-heart"></i>Add To Favorites
       </Link>
     </div>
+    
   );
 }

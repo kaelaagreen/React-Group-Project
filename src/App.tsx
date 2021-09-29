@@ -39,6 +39,7 @@ function App() {
             {/* SEARCH RESULTS */}
             {recipe?.hits.map((food, index) => {
               return (
+                
                 <div>
                   <ul>
                     <li>
@@ -55,6 +56,7 @@ function App() {
                     </li>
                   </ul>
                 </div>
+                
               );
             })}
           </Route>
