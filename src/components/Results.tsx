@@ -19,15 +19,6 @@ export default function Results({
       <p>Source: {source}</p>
       {/* <p>Calories: {calories.toFixed(0)}</p>
         <p>Total time: {totalTime}</p> */}
-      <Link
-        to={"/favorites"}
-        onClick={(event) => {
-          //   event?.preventDefault();
-          console.log("it clicked");
-        }}
-      >
-        <i className="fas fa-heart"></i>Add To Favorites
-      </Link>
     </div>
   );
 }
